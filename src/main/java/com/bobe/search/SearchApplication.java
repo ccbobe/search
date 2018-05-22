@@ -9,12 +9,14 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 @EnableAutoConfiguration
 @EnableMBeanExport
 @EnableScheduling
-@EnableAsync
 @EnableCaching
+@EnableWebMvc
 @SpringBootApplication
 public class SearchApplication {
 
