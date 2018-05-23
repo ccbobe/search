@@ -14,7 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableAutoConfiguration
 @EnableMBeanExport
-@EnableScheduling
 @EnableCaching
 @EnableWebMvc
 @SpringBootApplication

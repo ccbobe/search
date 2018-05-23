@@ -2,6 +2,7 @@ package com.bobe.search.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -28,6 +29,7 @@ public class AsyncConfig {
 	}
 	
 	@Bean("SimpleExecutor")
+	@Primary //当多个数据源或者线程池注入是@Primary 将其标注为默认的数据源
 	public ThreadPoolTaskExecutor simpleExecutor(){
 		ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
 		taskExecutor.setCorePoolSize(2);
