@@ -1,6 +1,6 @@
-package com.bobe.search.domain.po;
+package com.bobe.search.domain.dto;
 
-public class User {
+public class UserDto {
 	private String userName;
 	
 	private String email;

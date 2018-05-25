@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bobe.search.dao.IUserDao">
+    <insert id="saveUser" parameterType="com.bobe.search.domain.po.User">
+        INSERT INTO b_user(username,email)VALUES(#{userName},#{email})
+    </insert>
+
+    <update id="updateUser"  parameterType="com.bobe.search.domain.po.User">
+
+    </update>
+</mapper>
