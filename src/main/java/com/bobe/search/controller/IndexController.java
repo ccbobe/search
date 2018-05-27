@@ -1,5 +1,6 @@
 package com.bobe.search.controller;
 
+import com.bobe.search.common.DataSourceType;
 import com.bobe.search.common.ResponseJson;
 import com.bobe.search.domain.dto.UserDto;
 import com.bobe.search.domain.po.User;
@@ -26,10 +27,10 @@ public class IndexController {
 	@Autowired
 	IUserService userService;
 
-	
+	@DataSourceType("Slave")
 	@PostMapping("/index")
 	@ResponseBody
-	public ResponseJson index(@RequestBody @Validated UserDto userDto, BindingResult bindingResult){
+	public ResponseJson index(@RequestBody UserDto userDto, BindingResult bindingResult){
 		/*
 		* 参数验证只需要使用注解@Validated 标记即可验证
 		* BindingResult 通过BindingResult 获取验证返回信息。
@@ -51,7 +52,8 @@ public class IndexController {
 		} catch (Exception e) {
 			json.setCode("9999");
 			json.setMsg("系统异常，请稍后重试");
-			System.out.println(e.getMessage());
+			logger.warn("当前系统出现异常，异常信息为{}",e.getMessage());
+			return json;
 		}
 		return json;
 	}
