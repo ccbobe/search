@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServlet;
 
 @Aspect
-@Order(11)
+@Order(9)
 @Component
 public class RequestAspect {
 	private Logger logger = LoggerFactory.getLogger(getClass());

@@ -26,8 +26,7 @@ public class IndexController {
 	
 	@Autowired
 	IUserService userService;
-
-	@DataSourceType("Slave")
+	
 	@PostMapping("/index")
 	@ResponseBody
 	public ResponseJson index(@RequestBody UserDto userDto, BindingResult bindingResult){

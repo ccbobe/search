@@ -25,7 +25,7 @@ public class UserServiceImpl implements IUserService {
 	
 	@Autowired
 	private IUserDao IUserDao;
-	
+
 	@DataSourceType("Slave")
 	@CachePut(value = "user",key = "#user.userName")
 	@Async("SimpleExecutor")
@@ -41,7 +41,7 @@ public class UserServiceImpl implements IUserService {
 	//	int sum =  1/0;
 	//	DynamicDataSourceContextHolder.clearDataSource();
 	}
-	
+	@DataSourceType("Slave")
 	@Async("MasterExecutor")
 	@Override
 	@CachePut(value = "user",key = "#user.userName")
