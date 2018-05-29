@@ -86,12 +86,17 @@
             <version>5.0.6.RELEASE</version>
         </dependency>
 
-      <!--  &lt;!&ndash; https://mvnrepository.com/artifact/cglib/cglib &ndash;&gt;
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.1</version>
+       <!-- <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.2</version>
         </dependency>-->
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.4</version>
+        </dependency>
 
 
     </dependencies>
