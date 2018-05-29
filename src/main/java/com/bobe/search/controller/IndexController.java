@@ -17,6 +17,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @RequestMapping(value ="/api")
@@ -54,6 +55,24 @@ public class IndexController {
 			logger.warn("当前系统出现异常，异常信息为{}",e.getMessage());
 			return json;
 		}
+		return json;
+	}
+	
+	@PostMapping("/queryUsers")
+	@ResponseBody
+	public ResponseJson queryUserByPage(){
+		ResponseJson json = new ResponseJson();
+		List<User> users = null;
+		try {
+		    users = userService.queryUserByPage();
+		} catch (Exception e) {
+			logger.error("查询异常{}",e.getMessage());
+			json.setCode("9999");
+			return json;
+		}
+		json.setCode("1000");
+		json.setMsg("查询成功");
+		json.setData(users);
 		return json;
 	}
 }
