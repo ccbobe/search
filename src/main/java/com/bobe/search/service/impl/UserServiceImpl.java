@@ -6,6 +6,7 @@ import com.bobe.search.config.DynamicDataSourceContextHolder;
 import com.bobe.search.dao.IUserDao;
 import com.bobe.search.domain.po.User;
 import com.bobe.search.service.IUserService;
+import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -48,6 +50,11 @@ public class UserServiceImpl implements IUserService {
 	public void updateUser(User user) throws Exception {
 		logger.info("当前执行消息为:");
 	}
-	
-	
+	//@Cacheable(value = "user",key = "queryUserByPage")
+	@DataSourceType("Slave")
+	@Override
+	public List<User> queryUserByPage() throws Exception {
+		PageHelper.startPage(0, 20);
+		return IUserDao.queryUserByPage();
+	}
 }
