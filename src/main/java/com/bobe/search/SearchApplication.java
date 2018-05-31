@@ -1,5 +1,7 @@
 package com.bobe.search;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
+import de.codecentric.boot.admin.server.web.AdminController;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 @EnableAspectJAutoProxy(proxyTargetClass = true,exposeProxy = true)
+@EnableAdminServer
+@AdminController
 @MapperScan("com.bobe.search.dao")
 public class SearchApplication {
 
