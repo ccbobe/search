@@ -126,4 +126,13 @@ public class PrinterQueue {
 		executorService.shutdown();
 		logger.info("QQ"+semaphore.availablePermits()+"AA"+semaphore.drainPermits());
 	}
+	
+	@Test
+	public void testReadWriteLock(){
+		/**
+		 * 测试读写锁
+		 */
+	}
+	
+	
 }
